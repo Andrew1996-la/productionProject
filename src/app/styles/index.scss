@@ -10,3 +10,12 @@
   color: var(--primary-color);
   height: 100vh;
 }
+
+.content-wrapper {
+  display: flex;
+}
+
+.page-content {
+  padding: 20px;
+  flex: 1;
+}

@@ -7,7 +7,11 @@ export const AppRoutes: FC = () => {
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>
                 {Object.values(routesConfig).map(({path, element}) => {
-                    return <Route element={element} path={path} key={path}/>
+                    return <Route key={path} path={path} element={(
+                        <div className='page-content'>
+                            {element}
+                        </div>
+                    )} />
                 })}
             </Routes>
         </Suspense>
