@@ -1,3 +1,3 @@
-import {AppRoutes} from "app/providers/routes/ui/AppRoutes";
+import { AppRoutes } from 'app/providers/routes/ui/AppRoutes';
 
-export {AppRoutes}
+export { AppRoutes };

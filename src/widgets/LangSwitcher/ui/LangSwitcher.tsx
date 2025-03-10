@@ -1,8 +1,8 @@
-import {FC} from "react";
-import {classNames} from "shared/lib/classNames/classNames";
-import {Button, ButtonTheme} from "shared/ui/Button";
-import {useTranslation} from "react-i18next";
-import cls from './langswitcher.module.scss'
+import { FC } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { useTranslation } from 'react-i18next';
+import cls from './langswitcher.module.scss';
 
 export enum LangSwitcherTheme {
     PRIMARY = 'primary',
@@ -16,11 +16,11 @@ interface LangSwitcherProps {
 
 export const LangSwitcher:FC<LangSwitcherProps> = (props) => {
     const { t, i18n } = useTranslation();
-    const {classes, theme = LangSwitcherTheme.PRIMARY} = props;
+    const { classes, theme = LangSwitcherTheme.PRIMARY } = props;
 
     const changeLang = () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-    }
+    };
 
     return (
         <Button
