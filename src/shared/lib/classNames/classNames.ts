@@ -1,5 +1,12 @@
 type Mods = Record<string, boolean | string>;
 
+/**
+ * конкатенирует классы
+ *
+ * @param requiredClass обязательные класс
+ * @param mod классы по уловию
+ * @param addiction дополнительные классы
+ */
 export const classNames = (
     requiredClass: string,
     mod: Mods = {},
