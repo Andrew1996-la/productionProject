@@ -4,5 +4,7 @@
     "главная": "Home",
     "о нас": "About us"
   },
-  "страница не наидена": "Not found page"
+  "страница не наидена": "Not found page",
+  "что-то пошло не так. перезагрузите страницу": "Something went wrong =( Reload this page.",
+  "перезагрузить": "Reload"
 }
