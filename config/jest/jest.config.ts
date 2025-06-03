@@ -4,10 +4,6 @@
  */
 
 const config = {
-    // preset: 'ts-jest',
-    // transform: {
-    //     '^.+\\.ts?$': 'ts-jest',
-    // },
     clearMocks: true,
     testEnvironment: 'jsdom',
     testMatch: [
@@ -28,6 +24,11 @@ const config = {
         'node',
     ],
     rootDir: '../../',
+    modulePaths: ["<rootDir>src"],
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+    },
 };
 
 export default config;
