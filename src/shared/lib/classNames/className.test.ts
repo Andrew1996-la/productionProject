@@ -10,7 +10,8 @@ describe('classNames', () => {
     });
 
     test('multipleAddictionClasses', () => {
-        expect(classNames('baseClass', {}, ['addictionClass1', 'addictionClass2'])).toBe('baseClass addictionClass1 addictionClass2');
+        expect(classNames('baseClass', {}, ['addictionClass1', 'addictionClass2']))
+            .toBe('baseClass addictionClass1 addictionClass2');
     });
 
     test('withTrueMod', () => {
@@ -22,6 +23,7 @@ describe('classNames', () => {
     });
 
     test('withTrueModeAndAddictions', () => {
-        expect(classNames('baseClass', { modeClass: true }, ['addictionClass'])).toBe('baseClass addictionClass modeClass');
+        expect(classNames('baseClass', { modeClass: true }, ['addictionClass']))
+            .toBe('baseClass addictionClass modeClass');
     });
 });
