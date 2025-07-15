@@ -31,9 +31,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
      */
     config.module.rules = config.module.rules.map((rule) => {
         if (
-            typeof rule === 'object' &&
-            rule.test instanceof RegExp &&
-            rule.test.test('.svg')
+            typeof rule === 'object'
+            && rule.test instanceof RegExp
+            && rule.test.test('.svg')
         ) {
             return { ...rule, exclude: /\.svg$/i };
         }

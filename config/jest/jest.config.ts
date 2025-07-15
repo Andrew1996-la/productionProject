@@ -24,11 +24,11 @@ const config = {
         'node',
     ],
     rootDir: '../../',
-    modulePaths: ["<rootDir>src"],
+    modulePaths: ['<rootDir>src'],
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
-        '\\.svg$': '<rootDir>/config/jest/svgMock.ts'
+        '\\.svg$': '<rootDir>/config/jest/svgMock.ts',
     },
 };
 

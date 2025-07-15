@@ -1,5 +1,5 @@
-import {PageErrorBoundary} from "./ui/PageErrorBoundary";
+import { PageErrorBoundary } from './ui/PageErrorBoundary';
 
 export {
-    PageErrorBoundary
-}
+    PageErrorBoundary,
+};
