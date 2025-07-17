@@ -20,7 +20,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
         isDev && new webpack.HotModuleReplacementPlugin(),
         isDev && new ReactRefreshWebpackPlugin(),
-        new BundleAnalyzerPlugin({
+        isDev && new BundleAnalyzerPlugin({
             openAnalyzer: false,
         }),
     ];
