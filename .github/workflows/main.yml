@@ -30,7 +30,6 @@ jobs:
         run: npm run unit
 
       - name: build app if test was success
-        if: success()
         run: npm run build:prod
 
 
