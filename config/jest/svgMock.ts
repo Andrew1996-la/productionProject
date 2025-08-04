@@ -1,7 +1,3 @@
-import React from 'react';
-
-const svgMock = function () {
-    return 'div';
-};
+const svgMock = () => 'div';
 
 export default svgMock;
