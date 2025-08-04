@@ -12,7 +12,8 @@ jobs:
       matrix:
         node-version: [17.x]
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
 
       - name: install NodeJS ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -20,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: install dep
-        run: npm install
+        run: npm ci
 
       - name: start esLint
         run: npm run lint:ts
