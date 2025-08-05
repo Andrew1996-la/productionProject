@@ -17,15 +17,15 @@ const appRoutesPath: Record<AppRoutes, string> = {
 
 export const routesConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.MAIN]: {
-        path: appRoutesPath.Main,
+        path: appRoutesPath[AppRoutes.MAIN], // вместо appRoutesPath.Main
         element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
-        path: appRoutesPath.About,
+        path: appRoutesPath[AppRoutes.ABOUT], // вместо appRoutesPath.About
         element: <AboutPage />,
     },
     [AppRoutes.NOT_FOUND]: {
-        path: appRoutesPath.NotFound,
+        path: appRoutesPath[AppRoutes.NOT_FOUND], // вместо appRoutesPath.NotFound
         element: <NotFound />,
     },
 };
