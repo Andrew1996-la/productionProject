@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import cls from './NotFound.module.scss';
+import cls from './notFound.module.scss';
 
 const NotFound = () => {
     const { t } = useTranslation();
