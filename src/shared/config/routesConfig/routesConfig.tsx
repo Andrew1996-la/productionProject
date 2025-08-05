@@ -4,9 +4,9 @@ import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 
 enum AppRoutes {
-    MAIN = 'main',
-    ABOUT = 'about',
-    NOT_FOUND = 'notFound',
+    MAIN = 'Main',
+    ABOUT = 'About',
+    NOT_FOUND = 'NotFound',
 }
 
 const appRoutesPath: Record<AppRoutes, string> = {
@@ -17,15 +17,15 @@ const appRoutesPath: Record<AppRoutes, string> = {
 
 export const routesConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.MAIN]: {
-        path: appRoutesPath.main,
+        path: appRoutesPath.Main,
         element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
-        path: appRoutesPath.about,
+        path: appRoutesPath.About,
         element: <AboutPage />,
     },
     [AppRoutes.NOT_FOUND]: {
-        path: appRoutesPath.notFound,
+        path: appRoutesPath.NotFound,
         element: <NotFound />,
     },
 };
