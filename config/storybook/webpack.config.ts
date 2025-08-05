@@ -12,7 +12,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
     // Указываем пути до исходников (можно использовать в alias и modules)
     const paths: BuildPaths = {
-        src: path.resolve(__dirname, '..', '..', 'src'),
+        src: path.resolve(__dirname, 'src'),
         entry: '',
         html: '',
         build: '',
