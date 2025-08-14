@@ -12,11 +12,12 @@ export enum LangSwitcherTheme {
 interface LangSwitcherProps {
     classes?: string
     theme?: LangSwitcherTheme
+    short?: boolean;
 }
 
 export const LangSwitcher:FC<LangSwitcherProps> = (props) => {
     const { t, i18n } = useTranslation();
-    const { classes, theme = LangSwitcherTheme.PRIMARY } = props;
+    const { classes, theme = LangSwitcherTheme.PRIMARY, short } = props;
 
     const changeLang = () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -28,7 +29,7 @@ export const LangSwitcher:FC<LangSwitcherProps> = (props) => {
             onClick={changeLang}
             className={classNames('', {}, [classes, cls[theme]])}
         >
-            {t('язык')}
+            {short ? t('язык краткий') : t('язык') }
         </Button>
     );
 };

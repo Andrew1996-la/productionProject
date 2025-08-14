@@ -3,13 +3,13 @@ import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
 
-enum AppRoutes {
+export enum AppRoutes {
     MAIN = 'Main',
     ABOUT = 'About',
     NOT_FOUND = 'NotFound',
 }
 
-const appRoutesPath: Record<AppRoutes, string> = {
+export const appRoutesPath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.NOT_FOUND]: '*',
