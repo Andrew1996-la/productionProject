@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeType } from 'app/providers/themeProvider';
-import { Button, ButtonTheme } from './Button';
+import { Button, ButtonSize, ButtonTheme } from './Button';
 
 // описание компонента
 export default {
@@ -39,4 +39,11 @@ DarkOutline.args = {
     children: 'Text',
     theme: ButtonTheme.OUTLINE,
 };
+
+export const ButtonSizeM = Template.bind({});
+ButtonSizeM.args = {
+    children: '>',
+    size: ButtonSize.M,
+};
+
 DarkOutline.decorators = [ThemeDecorator(ThemeType.Dark)];
