@@ -8,7 +8,8 @@
   align-items: center;
 }
 
-.clear {
+.clear,
+.clearInverted {
   border: none;
   background: none;
   outline: none;
@@ -16,12 +17,22 @@
   color: var(--primary-color);
 }
 
-.outline {
+.clearInverted {
+  color: var(--inverted-primary-color);
+}
+
+.outline
+.outlineInverted {
   padding: 10px;
   cursor: pointer;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background: none;
+}
+
+.outlineInverted {
+  border: 1px solid var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
 }
 
 .background {
