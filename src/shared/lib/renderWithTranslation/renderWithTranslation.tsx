@@ -12,7 +12,10 @@ interface IProps {
 }
 
 export const renderWithTranslation = (props: IProps) => {
-    const { component, initialState } = props;
+    const {
+        component,
+        initialState,
+    } = props;
 
     return render(
         <ReduxProvider initialState={initialState as StoreScheme}>
