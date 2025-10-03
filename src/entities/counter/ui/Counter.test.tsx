@@ -4,23 +4,35 @@ import { renderWithTranslation } from 'shared/lib/renderWithTranslation/renderWi
 
 describe('Counter test', () => {
     test('Render counter', () => {
-        renderWithTranslation(<Counter />, { counter: { value: 10 } });
+        renderWithTranslation({
+            component: <Counter />,
+            initialState: { counter: { value: 10 } },
+        });
         expect(screen.getByTestId('counter')).toBeInTheDocument();
     });
 
     test('counterValue', () => {
-        renderWithTranslation(<Counter />, { counter: { value: 10 } });
+        renderWithTranslation({
+            component: <Counter />,
+            initialState: { counter: { value: 10 } },
+        });
         expect(screen.getByTestId('counter-value')).toHaveTextContent('10');
     });
 
     test('counter increment', () => {
-        renderWithTranslation(<Counter />, { counter: { value: 10 } });
+        renderWithTranslation({
+            component: <Counter />,
+            initialState: { counter: { value: 10 } },
+        });
         fireEvent.click(screen.getByTestId('increment-btn'));
         expect(screen.getByTestId('counter-value')).toHaveTextContent('11');
     });
 
     test('counter decrement', () => {
-        renderWithTranslation(<Counter />, { counter: { value: 10 } });
+        renderWithTranslation({
+            component: <Counter />,
+            initialState: { counter: { value: 10 } },
+        });
         fireEvent.click(screen.getByTestId('decrement-btn'));
         expect(screen.getByTestId('counter-value')).toHaveTextContent('9');
     });
