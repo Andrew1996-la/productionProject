@@ -6,6 +6,7 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import '../shared/config/i18n/i18n';
 import './styles/index.scss';
+import { Counter } from 'entities/counter';
 
 export function App() {
     const { theme } = useTheme();
@@ -14,6 +15,7 @@ export function App() {
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
+                <Counter />
                 <div className="content-wrapper">
                     <Sidebar />
                     <AppRoutes />
