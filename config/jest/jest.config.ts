@@ -30,6 +30,9 @@ const config = {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg$': '<rootDir>/config/jest/svgMock.ts',
     },
+    globals: {
+        __IS_DEV__: true,
+    },
 };
 
 export default config;
