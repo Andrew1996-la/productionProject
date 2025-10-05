@@ -12,6 +12,7 @@ export const useTheme = (): IUseTheme => {
     const toggleTheme = (): void => {
         const newTheme = theme === ThemeType.Light ? ThemeType.Dark : ThemeType.Light;
         setTheme(newTheme);
+        document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 
