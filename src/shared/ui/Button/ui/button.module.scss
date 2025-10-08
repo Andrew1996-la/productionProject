@@ -6,6 +6,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  background: var(--bg-color);
 }
 
 .clear,
@@ -21,7 +23,7 @@
   color: var(--inverted-primary-color);
 }
 
-.outline
+.outline,
 .outlineInverted {
   padding: 10px;
   cursor: pointer;
