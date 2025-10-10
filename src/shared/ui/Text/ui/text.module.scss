@@ -1,0 +1,18 @@
+.textWrapper {
+
+}
+
+.title {
+  font-size: var(--font-size-l);
+}
+
+.text {
+  font-size: var(--font-size-m);
+}
+
+.error {
+  .text,
+  .title {
+    color: var(--error-color);
+  }
+}

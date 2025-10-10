@@ -10,5 +10,6 @@
   "перезагрузить": "Reload",
   "войти": "Log in",
   "введите имя пользователя": "Enter username",
-  "введите пароль": "Enter password"
+  "введите пароль": "Enter password",
+  "вы ввели неправильный логин или пароль": "You entered an incorrect username or password."
 }

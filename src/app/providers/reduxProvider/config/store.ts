@@ -1,12 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/counter';
 import { userReducer } from 'entities/user';
+import { loginByUserNameReducer } from 'features/loginByUsername';
 import { StoreScheme } from './storeScheme';
 
 export function createReduxStore(initialState?: StoreScheme) {
     const rootReducer = combineReducers<StoreScheme>({
         counter: counterReducer,
         authData: userReducer,
+        login: loginByUserNameReducer,
     });
 
     return configureStore({
