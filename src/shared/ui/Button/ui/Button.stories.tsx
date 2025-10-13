@@ -58,4 +58,11 @@ ButtonSizeM.args = {
     size: ButtonSize.M,
 };
 
+export const ButtonDisabled = Template.bind({});
+ButtonDisabled.args = {
+    children: 'disabled',
+    theme: ButtonTheme.OUTLINE,
+    disabled: true,
+};
+
 DarkOutline.decorators = [ThemeDecorator(ThemeType.Dark)];

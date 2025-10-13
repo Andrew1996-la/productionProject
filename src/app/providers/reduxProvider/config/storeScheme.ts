@@ -4,6 +4,6 @@ import { ILoginByUsernameSchema } from 'features/loginByUsername';
 
 export interface StoreScheme {
     counter: CounterScheme,
-    authData: IUserSchema,
+    userData: IUserSchema,
     login: ILoginByUsernameSchema
 }

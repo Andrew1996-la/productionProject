@@ -9,7 +9,9 @@
   "что-то пошло не так. перезагрузите страницу": "Something went wrong =( Reload this page.",
   "перезагрузить": "Reload",
   "войти": "Log in",
+  "выйти": "Log out",
   "введите имя пользователя": "Enter username",
   "введите пароль": "Enter password",
-  "вы ввели неправильный логин или пароль": "You entered an incorrect username or password."
+  "вы ввели неправильный логин или пароль": "You entered an incorrect username or password.",
+  "авторизация": "Authorization"
 }

@@ -7,7 +7,7 @@ import { StoreScheme } from './storeScheme';
 export function createReduxStore(initialState?: StoreScheme) {
     const rootReducer = combineReducers<StoreScheme>({
         counter: counterReducer,
-        authData: userReducer,
+        userData: userReducer,
         login: loginByUserNameReducer,
     });
 

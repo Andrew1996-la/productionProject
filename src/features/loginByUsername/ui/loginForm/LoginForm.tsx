@@ -12,7 +12,10 @@ export const LoginForm: FC = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const {
-        username, password, error,
+        username,
+        password,
+        error,
+        isLoading,
     } = useSelector(getLoginData);
 
     const handleUsername = (value: string) => {
@@ -29,6 +32,7 @@ export const LoginForm: FC = () => {
 
     return (
         <div className={cls.loginForm}>
+            <Text title={t('авторизация')} />
             {error && (
                 <Text
                     textTheme={ETextTheme.ERROR}
@@ -53,6 +57,7 @@ export const LoginForm: FC = () => {
             <Button
                 className={cls.loginBtn}
                 onClick={handleSubmit}
+                disabled={isLoading}
             >
                 {t('войти')}
             </Button>
