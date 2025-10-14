@@ -41,6 +41,17 @@ export default ({ config }: { config: webpack.Configuration }) => {
         return rule;
     });
 
+    config.resolve.modules = [
+        path.resolve(__dirname, '../../src'),
+        'node_modules',
+    ];
+
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: true,
+        }),
+    );
+
     /**
      * Добавляем новый loader для .svg — теперь SVG можно импортировать как React-компоненты:
      * import Logo from './logo.svg';

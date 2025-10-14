@@ -2,6 +2,7 @@ import { AboutPage } from 'pages/AboutPage';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeType } from 'app/providers/themeProvider';
+import { LazyLoadDecorator } from 'shared/config/storybook/decorators/LazyLoadDecorator';
 
 export default {
     title: 'pages/AboutPage',
@@ -14,8 +15,8 @@ const Template: ComponentStory<typeof AboutPage> = (args) => (
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [ThemeDecorator(ThemeType.Light)];
+Light.decorators = [LazyLoadDecorator, ThemeDecorator(ThemeType.Light)];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeType.Dark)];
+Dark.decorators = [LazyLoadDecorator, ThemeDecorator(ThemeType.Dark)];

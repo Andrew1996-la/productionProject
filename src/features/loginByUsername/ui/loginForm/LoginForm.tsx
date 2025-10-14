@@ -44,6 +44,7 @@ export const LoginForm: FC = () => {
                 value={username}
                 onChange={handleUsername}
                 classes={cls.loginInput}
+                disabled={isLoading}
                 autoFocus
                 placeholder={t('введите имя пользователя')}
             />
@@ -51,6 +52,7 @@ export const LoginForm: FC = () => {
                 value={password}
                 onChange={handlePassword}
                 classes={cls.loginInput}
+                disabled={isLoading}
                 placeholder={t('введите пароль')}
             />
 

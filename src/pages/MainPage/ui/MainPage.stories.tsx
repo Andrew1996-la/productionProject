@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeType } from 'app/providers/themeProvider';
+import { LazyLoadDecorator } from 'shared/config/storybook/decorators/LazyLoadDecorator';
 import MainPage from './MainPage';
 
 export default {
@@ -15,4 +16,4 @@ Light.args = {};
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeType.Dark)];
+Dark.decorators = [LazyLoadDecorator, ThemeDecorator(ThemeType.Dark)];

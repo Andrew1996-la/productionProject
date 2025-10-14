@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { LoginForm } from 'features/loginByUsername/ui/loginForm/LoginForm';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 
 // описание компонента
 export default {
@@ -19,3 +19,21 @@ export const Primary = Template.bind({});
 Primary.args = {
 
 };
+
+Primary.decorators = [StoreDecorator({
+    login: { username: '123', password: '234', isLoading: false },
+})];
+
+export const PrimaryWithError = Template.bind({});
+PrimaryWithError.decorators = [StoreDecorator({
+    login: {
+        username: '123', password: '234', isLoading: false, error: 'error',
+    },
+})];
+
+export const PrimaryWithLoading = Template.bind({});
+PrimaryWithLoading.decorators = [StoreDecorator({
+    login: {
+        username: '123', password: '234', isLoading: true,
+    },
+})];

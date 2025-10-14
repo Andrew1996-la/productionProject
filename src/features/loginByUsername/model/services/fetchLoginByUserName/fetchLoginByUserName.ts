@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IUser } from 'entities/user/model/types/userSchema';
 import axios from 'axios';
-import { userActions } from 'entities/user';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localStorage/user';
+import { userActions } from 'entities/user';
 
 interface IFetchLoginByUsernameProps {
     username: string;

@@ -1,4 +1,3 @@
-import { getCounter } from 'entities/counter/model/selectors/getCounter/getCounter';
 import { StoreScheme } from 'app/providers/reduxProvider';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { getCounterValue } from './getCounterValue';

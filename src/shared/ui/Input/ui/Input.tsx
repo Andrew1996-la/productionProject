@@ -30,7 +30,9 @@ export const Input: FC<InputProps> = (props) => {
 
     return (
         <div className={cls.inputWrapper}>
-            {placeholder && `${placeholder} >`}
+            <span className={cls.placeholder}>
+                {placeholder && `${placeholder} >`}
+            </span>
             <input
                 className={classNames(cls.input, {}, [classes])}
                 value={value}
