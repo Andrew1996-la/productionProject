@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/ui/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoginData } from 'features/loginByUsername/model/selectors/getLoginData/getLoginData';
-import { fetchLoginByUserName, loginByUserNameActions } from 'features/loginByUsername';
 import { ETextTheme, Text } from 'shared/ui/Text';
 import cls from './loginForm.module.scss';
+import { fetchLoginByUserName } from '../../model/services/fetchLoginByUserName/fetchLoginByUserName';
+import { loginByUserNameActions } from '../../model/slice/loginByUsername';
 
 export const LoginForm: FC = () => {
     const { t } = useTranslation();
