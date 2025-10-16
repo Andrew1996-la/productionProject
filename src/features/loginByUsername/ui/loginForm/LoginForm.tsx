@@ -9,7 +9,7 @@ import cls from './loginForm.module.scss';
 import { fetchLoginByUserName } from '../../model/services/fetchLoginByUserName/fetchLoginByUserName';
 import { loginByUserNameActions } from '../../model/slice/loginByUsername';
 
-export const LoginForm: FC = () => {
+const LoginForm: FC = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const {
@@ -67,3 +67,5 @@ export const LoginForm: FC = () => {
         </div>
     );
 };
+
+export default LoginForm;
