@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/ui/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { ETextTheme, Text } from 'shared/ui/Text';
-import { LazyReducers } from 'shared/lib/lazyReducers/LazyReducers';
+import { LazyReducers, TReducersList } from 'shared/lib/lazyReducers/LazyReducers';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -12,6 +12,10 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import cls from './loginForm.module.scss';
 import { fetchLoginByUserName } from '../../model/services/fetchLoginByUserName/fetchLoginByUserName';
 import { loginByUserNameActions, loginByUserNameReducer } from '../../model/slice/loginByUsername';
+
+const initialReducers:TReducersList = {
+    login: loginByUserNameReducer,
+};
 
 const LoginForm: FC = () => {
     const { t } = useTranslation();
@@ -34,7 +38,7 @@ const LoginForm: FC = () => {
     };
 
     return (
-        <LazyReducers reducerName="login" reducer={loginByUserNameReducer}>
+        <LazyReducers reducers={initialReducers} removeAfterUnmount>
             <div className={cls.loginForm}>
                 <Text title={t('авторизация')} />
                 {error && (

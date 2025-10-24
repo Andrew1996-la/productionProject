@@ -3,25 +3,44 @@ import { useStore } from 'react-redux';
 import { IStoreSchemeWithManager, StoreSchemeKeys } from 'app/providers/reduxProvider/config/storeScheme';
 import { Reducer } from '@reduxjs/toolkit';
 
+export type TReducersList = {
+    [reducerName in StoreSchemeKeys]?: Reducer;
+}
+
+type ReducerItem = [StoreSchemeKeys, Reducer]
+
 interface IProps {
-    reducerName: StoreSchemeKeys;
-    reducer: Reducer,
+    reducers: TReducersList,
+    removeAfterUnmount?: boolean,
 }
 
 export const LazyReducers: FC<IProps> = (props) => {
-    const { children, reducerName, reducer } = props;
+    const {
+        children,
+        reducers,
+        removeAfterUnmount,
+    } = props;
     const store = useStore() as IStoreSchemeWithManager;
 
     useEffect(() => {
-        store.reducerManager.add(reducerName, reducer);
+        Object.entries(reducers).forEach(([reducerName, reducer]:ReducerItem) => {
+            store.reducerManager.add(reducerName, reducer);
+        });
 
-        return () => store.reducerManager.remove(reducerName);
+        return () => {
+            if (removeAfterUnmount) {
+                Object.entries(reducers).forEach(([reducerName]:ReducerItem) => {
+                    store.reducerManager.remove(reducerName);
+                });
+            }
+        };
         // eslint-disable-next-line
     }, []);
 
     return (
-        <div>
-            {children}
-        </div>
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>
+            { children }
+        </>
     );
 };
