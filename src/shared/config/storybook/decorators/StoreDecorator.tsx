@@ -9,7 +9,7 @@ const defaultLoginReducers: DeepPartial<ReducersMapObject<StoreScheme>> = {
 
 export const StoreDecorator = (
     store: DeepPartial<StoreScheme>,
-    asyncReducers: DeepPartial<ReducersMapObject<StoreScheme>>,
+    asyncReducers?: DeepPartial<ReducersMapObject<StoreScheme>>,
 ) => (StoryComponent: Story) => (
     <ReduxProvider
         initialState={store as StoreScheme}
