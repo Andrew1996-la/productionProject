@@ -1,7 +1,6 @@
 export interface IUser {
-    id: number;
-    name: string
-    password: string
+    id: string;
+    username: string
 }
 
 export interface IUserSchema {
