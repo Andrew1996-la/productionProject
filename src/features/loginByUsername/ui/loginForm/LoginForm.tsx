@@ -2,9 +2,10 @@ import { FC } from 'react';
 import { Button } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/ui/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ETextTheme, Text } from 'shared/ui/Text';
 import { LazyReducers, TReducersList } from 'shared/lib/lazyReducers/LazyReducers';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -13,13 +14,17 @@ import cls from './loginForm.module.scss';
 import { fetchLoginByUserName } from '../../model/services/fetchLoginByUserName/fetchLoginByUserName';
 import { loginByUserNameActions, loginByUserNameReducer } from '../../model/slice/loginByUsername';
 
+interface IProps {
+    onSuccess: () => void
+}
+
 const initialReducers:TReducersList = {
     login: loginByUserNameReducer,
 };
 
-const LoginForm: FC = () => {
+const LoginForm: FC<IProps> = ({ onSuccess }) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
@@ -33,8 +38,13 @@ const LoginForm: FC = () => {
         dispatch(loginByUserNameActions.setPassword(value));
     };
 
-    const handleSubmit = () => {
-        dispatch(fetchLoginByUserName({ username, password }));
+    const handleSubmit = async () => {
+        const result = await dispatch(fetchLoginByUserName({ username, password }));
+
+        // закрываем модальное окно при успешном логине
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
     };
 
     return (

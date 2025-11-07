@@ -4,8 +4,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/loginByUsername';
 import { getUserAuthData } from 'entities/user/model/selectors/getUserAuthData/getUserAuthData';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { userActions } from 'entities/user';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import cls from './navbar.module.scss';
 
 interface NavbarProps {
@@ -16,49 +17,50 @@ export const Navbar:FC<NavbarProps> = (props) => {
     const { classes } = props;
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isAuth = useSelector(getUserAuthData);
 
+    const openAuthModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
+
     const closeAuthModal = useCallback(() => {
-        setIsAuthModal((prev) => !prev);
+        setIsAuthModal(false);
     }, []);
 
     const logout = useCallback(() => {
         dispatch(userActions.logout());
-    }, [dispatch]);
-
-    if (isAuth) {
-        return (
-            <nav className={classNames(cls.navbar, {}, [classes])}>
-                <div className={cls.links}>
-                    <Button
-                        onClick={logout}
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                    >
-                        {t('выйти')}
-                    </Button>
-                </div>
-            </nav>
-        );
-    }
+        closeAuthModal();
+    }, [dispatch, closeAuthModal]);
 
     return (
         <nav className={classNames(cls.navbar, {}, [classes])}>
-            <div className={cls.links}>
-                <Button
-                    onClick={closeAuthModal}
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                >
-                    {t('войти')}
-                </Button>
-            </div>
+            {isAuth
+                ? (
+                    <div className={cls.links}>
+                        <Button
+                            onClick={logout}
+                            theme={ButtonTheme.CLEAR_INVERTED}
+                        >
+                            {t('выйти')}
+                        </Button>
+                    </div>
+                )
+                : (
+                    <div className={cls.links}>
+                        <Button
+                            onClick={openAuthModal}
+                            theme={ButtonTheme.CLEAR_INVERTED}
+                        >
+                            {t('войти')}
+                        </Button>
+                    </div>
+                )}
 
             <LoginModal
-                closeModal={() => closeAuthModal()}
+                closeModal={closeAuthModal}
                 isOpenModal={isAuthModal}
-            >
-                test modal
-            </LoginModal>
+            />
         </nav>
     );
 };
